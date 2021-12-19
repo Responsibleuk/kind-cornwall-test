@@ -1,0 +1,35 @@
+/* awareness section */
+
+.studio-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    background-color: white;       
+    margin-left: 2rem;
+    }
+          
+    .studio-text {
+    width: 24vw;
+    margin-bottom: 0;
+    }
+          
+    .awareness-figure {
+    background-color: white;
+    display: flex;
+    flex-flow: column;
+    width: 24vw;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+    }
+    
+    .awareness-caption {
+    align-self: flex-start;
+    text-align: center;
+    border-bottom: 2px solid #0C3C60;
+    font-size: 100%;
+    width: 24vw;
+    }
+    
+    .more-info {
+      text-decoration: none;
+    }

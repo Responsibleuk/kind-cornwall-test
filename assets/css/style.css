@@ -20,7 +20,7 @@ Variables
   --clr-primary-3: hsl(205, 72%, 37%);
   --clr-primary-4: hsl(205, 63%, 48%);
   /* primary/main color */
-  --clr-primary-5: #49a6e9;
+  --clr-primary-5: hsl(205, 63%, 48%);
   /* lighter shades of primary color */
   --clr-primary-6: hsl(205, 89%, 70%);
   --clr-primary-7: hsl(205, 90%, 76%);
@@ -43,7 +43,7 @@ Variables
   --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
   --clr-green-dark: hsl(125, 67%, 44%);
-  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-magenta: hsl(298, 56%, 45%);
   --clr-black: #222;
   --clr-gold: #c59d5f;
   --ff-primary: "Merriweather", sans-serif;
@@ -137,6 +137,42 @@ p {
     line-height: 1;
   }
 }
+
+/*
+=============== 
+Hero Image
+===============
+*/
+
+/* hero image */
+#hero-image {
+  height: 40rem;
+  /* width: 100%; */
+  overflow: hidden;
+  background: url(../images/hero-studio.jpg) no-repeat center center;
+}
+
+#hero-image-text { 
+position: absolute; 
+top: 10rem; 
+left: 50rem; 
+/* width: 100%;  */
+letter-spacing: 4px;  
+background: var(--clr-primary-10);
+padding: 1rem; 
+}
+
+/* hero image text */
+#hero-image-main-text { 
+  position: absolute; 
+  top: 175px; 
+  left: 100px;
+  font-size: 35px;
+  text-size-adjust: 300%;
+  letter-spacing: 4px;  
+  background: var(--clr-primary-10);
+  padding: 10px; 
+  }
 
 /*
 =============== 
@@ -273,7 +309,7 @@ Countdown Styles
 
 .section-center {
   width: 90vw;
-  margin: 5rem auto;
+  margin: 2rem auto;
   max-width: 1170px;
 }
 
@@ -282,11 +318,13 @@ main {
   display: grid;
   place-items: center;
 }
+
 /*
 =============== 
 Countdown Timer
 ===============
 */
+
 .home-img {
   margin-bottom: 2rem;
 }
@@ -348,7 +386,7 @@ Button
 */
 
 .button__link {
-  background-color: #32373c;
+  background-color: var(--clr-magenta);
   border-radius: 9999px;
   box-shadow: none;
   box-sizing: border-box;
@@ -370,21 +408,17 @@ Footer
 
 
 #footer-container {
-  background-color:#0C3C60;
+  background-color: var(--clr-primary-1);
   margin-top: 10px;
+  margin-bottom: -50px;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
   }
-
-  body > footer {
-    position: sticky; 
-    top: 100vh;
-  }
   
   .emailSignup {
     display: block;
-    background: #0C3C60;
+    background: var(--clr-primary-1);
     width: 100%;
     margin: 0 0 20px;
     position: relative;
@@ -393,17 +427,30 @@ Footer
     text-align: center;
   }
   
-  .emailSignup h2 {
-    font-size: 32px;
+  .emailSignup h1 {
+    font-size: 3rem;
     margin: 0 0 10px;
-    color: #FFFFFF;
+    color: var(--clr-white);
+  }
+
+  .emailSignup h2 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+    color: var(--clr-white);
   }
   
+  .emailSignup h3 {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+    color: var(--clr-primary-8);
+  }
+  
+
   .emailSignup p {
     font-size: 20px;
     line-height: 1.4;
     margin: 0 0 20px;
-    color: #D3D3D3;
+    color: var(--clr-primary-10);
   }
   
   .emailSignup form {
@@ -431,11 +478,11 @@ Footer
     line-height: 46px;
     font-size: 22px;
     font-weight: bold;
-    background: #85C5D4;
-    color: #FFFFFF;
+    background: var(--clr-primary-5);
+    color: var(--clr-primary-10);
     border-radius: 3px;
     text-transform: uppercase;
-    text-shadow: 0 0 1px #85C5D4;
+    text-shadow: 0 0 1px var(--clr-primary-5);
   }
   
   .closeBox {
@@ -444,7 +491,7 @@ Footer
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #fff;
+    background: var(--clr-primary-10);
     line-height: 30px;
     text-align: center;
     font-weight: bold;
@@ -453,12 +500,12 @@ Footer
     cursor: pointer;
   }
 
-  /*
+
+/*
 =============== 
 Form
 ===============
 */
-
 
 .form-container {
   max-width: 30rem;
@@ -581,3 +628,10 @@ fieldset {
 :-ms-input-placeholder {
   color: #888;
 }
+
+/*
+=============== 
+Form
+===============
+*/
+
