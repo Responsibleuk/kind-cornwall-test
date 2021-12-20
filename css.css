@@ -33,3 +33,72 @@
     .more-info {
       text-decoration: none;
     }
+
+
+    /* 
+    =========
+    Studio accordians
+    =========
+     */
+
+     .container__accordion {
+      max-width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem .5rem;
+    }
+    
+    .accordion {
+      list-style: none;
+      max-width: 550px;
+      width: 90%;
+    }
+    .accordion__item {
+      margin-bottom: .8rem;
+      border: 1px solid #F2F2F2;
+      transition: all .2s linear;
+    }
+    .accordion__item.open {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+    }
+    .accordion__item__head {
+      padding: 1rem;
+    }
+    
+    .accordion__item__head {
+      background: #8e43e7;
+      color: #EEE;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .accordion__item__head h2 {
+      text-transform: uppercase;
+      font-size: 1.3rem;
+    }
+    .accordion__item__head i {
+      transition: transform .3s linear;
+    }
+    .accordion__item.open .accordion__item__head i {
+      transform: rotate(-180deg)
+    }
+    
+    .accordion__item__body {
+      overflow: hidden;
+      height: 0;
+      border-left: 3px solid #8e43e7;
+    }
+    .accordion__item.open .accordion__item__body {
+      padding: 1rem;
+      height: auto;
+    }
+    .accordion__item__body > *:not(:first-child) {
+      margin-top: .8rem;
+    }
+    .accordion__item__body p {
+      font-size: .9rem;
+      line-height: 1.3;
+    }
