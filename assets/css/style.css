@@ -636,11 +636,6 @@ Form
 */
 
 
-
-
-
-
-
  /* 
     =========
     Studio accordians
@@ -661,6 +656,7 @@ Form
       max-width: 550px;
       width: 90%;
     }
+
     .accordion__item {
       margin-bottom: .8rem;
       border: 1px solid #F2F2F2;
@@ -674,17 +670,14 @@ Form
     }
     
     .accordion__item__head {
-      background: #8e43e7;
-      color: #EEE;
+      background: var(--clr-primary-1);
+      color: var(--clr-white);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .accordion__item__head h2 {
-      text-transform: uppercase;
-      font-size: 1.3rem;
-    }
+  
     .accordion__item__head i {
       transition: transform .3s linear;
     }
@@ -695,7 +688,6 @@ Form
     .accordion__item__body {
       overflow: hidden;
       height: 0;
-      border-left: 3px solid #8e43e7;
     }
     .accordion__item.open .accordion__item__body {
       padding: 1rem;
