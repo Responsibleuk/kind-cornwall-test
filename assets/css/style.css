@@ -166,7 +166,8 @@ Hero Image
   height: 40rem;
   /* width: 100%; */
   overflow: hidden;
-  background: url(../images/hero-studio.jpg) no-repeat center center;
+  background: url(../images/community-hero-heart.jpg) no-repeat center center;
+  box-shadow: var(--light-shadow);
 }
 
 #hero-image-text {
@@ -191,6 +192,16 @@ Hero Image
   padding: 10px;
 }
 
+#hero-image-studio-text {
+  position: absolute;
+  top: 17rem;
+  left: 10rem;
+  width: 30rem;
+}
+
+#hero-image-studio-text p {
+  margin-bottom: 5rem;
+}
 /*
 =============== 
 Nav Bar
@@ -312,9 +323,16 @@ nav {
 
 /*
 =============== 
-Countdown Styles
+Introduction
 ===============
 */
+
+.introduction-container {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  }
 
 /*  global classes */
 
@@ -350,7 +368,7 @@ Countdown Styles
 }
 
 main {
-  min-height: 100vh;
+  /* min-height: 50vh; */
   display: grid;
   place-items: center;
 }
@@ -692,7 +710,10 @@ Studio growth
 }
 
 .flex-container {
-  margin: 10rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: row;
   text-align: center;
