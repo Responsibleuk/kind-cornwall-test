@@ -10,7 +10,7 @@
   <link rel="shortcut icon" type="image/jpg" href="assets/images/kernow-flag-heart.png">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-  <title>Community</title>
+  <title>Kind Cornwall</title>
 </head>
 
 <body>
@@ -28,13 +28,13 @@
         <!-- links -->
         <ul class="links">
           <li>
-            <a href="index.html">home</a>
+            <a href="index.html" class="active">home</a>
           </li>
           <li>
-            <a href="community.html" class="active">community</a>
+            <a href="community.html">community</a>
           </li>
           <li>
-            <a href="studios.html">studios</a>
+            <a href="studio.html">studio</a>
           </li>
           <li>
             <a href="blog.html">blog</a>
@@ -68,38 +68,57 @@
 
   </header>
 
+  <!-- hero image -->
 
-  <!-- About us -->
-  <section class="section-center">
-    <!-- info -->
-    <article class="home-info">
-      <h2>
-        Kind Cornwall helps you shape your business, attract new customers, and progress your personal development as a
-        Cornish business leader.
-      </h2>
-      <p> Small businesses are the foundation of strong communities. They bring energy, personality and diversity to the
-        communities they serve, Kind Cornwall is a new social enterprise bringing together and supporting the best
-        lifestyle businesses in Cornwall.
-      </p>
-      <p>Join fellow Cornish businesses benefitting from our collective experience. Learn from our mistakes and
-        successes, and create.
-      </p>
-<!-- button-->
-<a class="button__link" href="form.html" target="_blank">Become a member</a>
-    </article>
+  <!-- <section id="hero-image">
+    <h2 id="hero-image-main-text">Kind Cornwall</h2>
+</section> -->
 
+<section class="section-center">
+    
+  <article class="home-img">
+    <img src="assets/images/community-circle.jpg" alt="gift" />
+  </article>
+ 
+  <article class="home-info">
 
-    <!-- image -->
-    <article class="home-img">
-      <img src="assets/images/faces.png" alt="pictures-of-kind-cornwall-members" />
-    </article>
-  </section>
+<div class="form-container">  
+    <form id="contact" action="" method="post">
+      <h3>Join Kind Cornwall</h3>
+      <h4>Tell us about you and your business</h4>
+      <fieldset>
+        <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Your Email Address" type="email" tabindex="2" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+  </article>
+</section>
 
-  <!-- footer -->
+   <!-- footer -->
   <footer id="footer-container">
     <section class="emailSignup">
-      <h1>The Network for Cornish Business</h1>
       <h2>Collaboration not competition</h2>
+      <h3>The Network for Cornish Business</h3>
+      <form class="emailSignup--form">
+        <input type="email" class="emailSignup--email-input" placeholder="Please enter your email..." required>
+        <input type="submit" class="emailSignup--email-submit" value="Join">
+      </form>
+      <p>@ Kind Cornwall 2022</p>
     </section>
   </footer>
 
