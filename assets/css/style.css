@@ -166,42 +166,11 @@ Hero Image
   height: 40rem;
   /* width: 100%; */
   overflow: hidden;
-  background: url(../images/community-hero-heart.jpg) no-repeat center center;
+  background: url(../images/hero-studio.jpg) no-repeat center center;
   box-shadow: var(--light-shadow);
 }
 
-#hero-image-text {
-  position: absolute;
-  top: 10rem;
-  left: 50rem;
-  /* width: 100%;  */
-  letter-spacing: 4px;
-  background: var(--clr-primary-10);
-  padding: 1rem;
-}
 
-/* hero image text */
-#hero-image-main-text {
-  position: absolute;
-  top: 175px;
-  left: 100px;
-  font-size: 35px;
-  text-size-adjust: 300%;
-  letter-spacing: 4px;
-  background: var(--clr-primary-10);
-  padding: 10px;
-}
-
-#hero-image-studio-text {
-  position: absolute;
-  top: 17rem;
-  left: 10rem;
-  width: 30rem;
-}
-
-#hero-image-studio-text p {
-  margin-bottom: 5rem;
-}
 /*
 =============== 
 Nav Bar
