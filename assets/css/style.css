@@ -170,7 +170,24 @@ Hero Image
   box-shadow: var(--light-shadow);
 }
 
+#hero-image-inspire {
+  height: 40rem;
+  /* width: 100%; */
+  overflow: hidden;
+  background: url(../images/hero-inspiration.png) no-repeat center center;
+  box-shadow: var(--light-shadow);
+}
 
+#hero-image-studio-text {
+  width: 40rem;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 15rem;
+}
+
+#hero-image-studio-text p{
+  padding-bottom: 2rem;
+}
 /*
 =============== 
 Nav Bar
@@ -865,7 +882,7 @@ Quote generator
   height: 30rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-top: 8rem;
+  padding-top: 5rem;
   padding-bottom: 8rem;
   box-shadow: var(--light-shadow);
 }
