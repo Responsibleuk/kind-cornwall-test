@@ -854,7 +854,21 @@ Quote generator
  */
 
  
+ .quiz-section-center {
+  width: 90vw;
+  margin: 2rem auto;
+  max-width: 1170px;
+  height: 40vw;
+}
 
+#quote {
+  height: 30rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  box-shadow: var(--light-shadow);
+}
 
 
 
