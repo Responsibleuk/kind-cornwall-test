@@ -1,168 +1,200 @@
-var doodlerSize = 60;
-var doodlerX;
-var doodlerY;
-var doodlerVelocity;
-var doodlerXSpeed = 4;
-var platformWidth = 85;
-var platformHeight = 15;
-var numOfPlatforms = 5;
-var platformList = [];
-var platYChange = 0;
-var gameStarted;
-var score = 0;
-var highScore = 0;
-var doodlerLeftImg;
-var doodlerRightImg;
-var platformImg;
-var backgroundImg;
+// ============= Quiz =============
 
-// ===========================
-//  Preload the Image Sprites
-// ===========================
-function preload() {
+const question = document.querySelector('#question');
+const choices = Array.from(document.querySelectorAll('.choice-text'));
+const progressText = document.querySelector('#progressText');
+const scoreText = document.querySelector('#score');
+const progressBarFull = document.querySelector('#progressBarFull');
 
-  backgroundImg = loadImage("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Graph-paper.svg/1024px-Graph-paper.svg.png");
-  doodlerLeftImg = loadImage("https://raw.githubusercontent.com/JasonMize/coding-league-assets/master/doodle-jump-doodler.png");
-  doodlerRightImg = loadImage("https://raw.githubusercontent.com/JasonMize/coding-league-assets/master/doodle-jump-doodler-right.png");
-  platformImg = loadImage("https://raw.githubusercontent.com/JasonMize/coding-league-assets/master/doodle-jump-platform.png");
+let currentQuestion = {}
+let acceptingAnswers = true
+let score = 0
+let questionCounter = 0
+let availableQuestions = []
+
+let questions = [
+    {
+        question: "What are the big plant Geodomes in Cornwall called?",
+        choice1: 'Landhydrock Gardens',
+        choice2: 'The Eden Project',
+        choice3: 'The Lost Gardens of Heligan',
+        choice4: 'Trelissick Gardens',
+        answer: 2,
+    },
+    {
+        question: "What colour is the Cornwall flag?",
+        choice1: "Green & Gold",
+        choice2: "Red & White",
+        choice3: "Yellow & Blue",
+        choice4: "Black & White",
+        answer: 4,
+    },
+    {
+        question: "The iconic Tate gallery is in which Cornish town?",
+        choice1: "Penzance",
+        choice2: "Rock",
+        choice3: "St Ives",
+        choice4: "Falmouth",
+        answer: 3,
+    },
+    {
+        question: "Which of these ingredients does not belong in a traditional Cornish pasty?",
+        choice1: "Onion",
+        choice2: "Swede",
+        choice3: "Carrot",
+        choice4: "Potato",
+        answer: 3,
+    },
+    {
+        question: "Which of these celebrities is NOT from Cornwall?",
+        choice1: "Roger Taylor",
+        choice2: "Ben Ainslie",
+        choice3: "Helen Glover",
+        choice4: "Philip Schofield",
+        answer: 4,
+    },
+    {
+        question: "The 1990s adaptation of Roald Dahl’s ‘The Witches’ was partly filmed in which Cornish hotel?",
+        choice1: "The Greenbank, Falmouth",
+        choice2: "Padstow Harbour Hotel, Padstow",
+        choice3: "The Headland Hotel, Newquay",
+        choice4: "The Lugger, Portloe",
+        answer: 3,
+    },
+    {
+        question: "Cornwall’s only UNESCO World Heritage Site is valued because it is the site of a former…",
+        choice1: "Copper and tin mine",
+        choice2: "Cotton Mmill",
+        choice3: "Neolithic settlement",
+        choice4: "Silk factory",
+        answer: 1,
+    },
+    {
+        question: "Which British celebrity chef has a restaurant in Padstow?",
+        choice1: "Jamie Oliver",
+        choice2: "Gordon Ramsay",
+        choice3: "Marcus Waring",
+        choice4: "Rick Stein",
+        answer: 4,
+    },
+    {
+        question: "What is the Cornish name for Cornwall?",
+        choice1: "Hornwall",
+        choice2: "Kernow",
+        choice3: "Cairnwall",
+        choice4: "Kernwall",
+        answer: 2,
+    },
+    {
+        question: "Which Daphne du Maurier novel is set in Cornwall?",
+        choice1: "Rebecca",
+        choice2: "The Birds",
+        choice3: "Jamaica Inn",
+        choice4: "The Scapegoat",
+        answer: 3,
+    },
+
+]
+
+const SCORE_POINTS = 10
+const MAX_QUESTIONS = 10
+
+startGame = () => {
+    questionCounter = 0
+    score = 0
+    availableQuestions = [...questions]
+    getNewQuestion()
 }
 
-// ===========================
-//  Controllers
-// ===========================
-function setup() {
-  createCanvas(400, 600);
-  frameRate(60);
-  gameStarted = false;
-}
+getNewQuestion = () => {
+    if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+        localStorage.setItem('mostRecentScore', score)
 
-function draw() {
-  background(247, 239, 231);
-  image(backgroundImg, 0, 0, 400, 600);
-  if(gameStarted == true) {
-    //Set up and draw the game
-    drawPlatforms();
-    drawDoodler();
-    checkCollision();
-    moveDoodler();
-    moveScreen();
-  } else {
-    // Start menu
-    fill(0);
-    textSize(60);
-    text("Start", 140, 275);
-    textSize(30);
-    text("Score: " + score, 150, 325);
-    textSize(20);
-    text("High Score: " + highScore, 150, 360);
-  }
-}
-
-function moveScreen() {
-  if(doodlerY < 250) {
-    platYChange = 3;
-    doodlerVelocity += 0.25;
-  } else {
-    platYChange = 0;
-  }
-}
-
-// Start Game
-function mousePressed() {
-  if(gameStarted == false) {
-    score = 0;
-    setupPlatforms();
-    doodlerY = 350;
-    doodlerX = platformList[platformList.length - 1].xPos + 15;
-    doodlerVelocity = 0.1;
-    gameStarted = true;
-  }
-}
-
-// ===========================
-//  Doodler
-// ===========================
-function drawDoodler() {
-  fill(204, 200, 52);
-  image(doodlerLeftImg, doodlerX, doodlerY, doodlerSize, doodlerSize);
-}
-
-function moveDoodler() {
-  // doodler falls with gravity
-  doodlerVelocity += 0.2;
-  doodlerY += doodlerVelocity;
-
-  if (keyIsDown(LEFT_ARROW)) {
-    doodlerX -= doodlerXSpeed;
-  }
-  if (keyIsDown(RIGHT_ARROW)) {
-    doodlerX += doodlerXSpeed;
-  }
-}
-
-// ===========================
-//  Platforms
-// ===========================
-function setupPlatforms() {
-  for(var i=0; i < numOfPlatforms; i++) {
-    var platGap = height / numOfPlatforms;
-    var newPlatformYPosition = i * platGap;
-    var plat = new Platform(newPlatformYPosition);
-    platformList.push(plat);
-  }
-}
-
-function drawPlatforms() {
-  fill(106, 186, 40);
-  platformList.forEach(function(plat) {
-    // move all platforms down
-    plat.yPos += platYChange;
-    image(platformImg, plat.xPos, plat.yPos, plat.width, plat.height);
-
-    if(plat.yPos > 600) {
-      score++;
-      platformList.pop();
-      var newPlat = new Platform(0);
-      platformList.unshift(newPlat); // add to front
+        return window.location.assign('/end.html')
     }
-  });
+
+    questionCounter++
+    progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
+    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`
+
+    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+    currentQuestion = availableQuestions[questionsIndex]
+    question.innerText = currentQuestion.question
+
+    choices.forEach(choice => {
+        const number = choice.dataset['number']
+        choice.innerText = currentQuestion['choice' + number]
+    })
+
+    availableQuestions.splice(questionsIndex, 1)
+
+    acceptingAnswers = true
 }
 
-function Platform(newPlatformYPosition) {
-  this.xPos = random(15, 300);
-  this.yPos = newPlatformYPosition;
-  this.width = platformWidth;
-  this.height = platformHeight;
+choices.forEach(choice => {
+    choice.addEventListener('click', e => {
+        if (!acceptingAnswers) return
+
+        acceptingAnswers = false
+        const selectedChoice = e.target
+        const selectedAnswer = selectedChoice.dataset['number']
+
+        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
+
+        if (classToApply === 'correct') {
+            incrementScore(SCORE_POINTS)
+        }
+
+        selectedChoice.parentElement.classList.add(classToApply)
+
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply)
+            getNewQuestion()
+
+        }, 1000)
+    })
+})
+
+incrementScore = num => {
+    score += num
+    scoreText.innerText = score
 }
 
-// ===========================
-//  Collisions
-// ===========================
-function checkCollision() {
-  platformList.forEach(function(plat) {
-    if(
-      doodlerX < plat.xPos + plat.width &&
-      doodlerX + doodlerSize > plat.xPos &&
-      doodlerY + doodlerSize < plat.yPos + plat.height &&
-      doodlerY + doodlerSize > plat.yPos &&
-      doodlerVelocity > 0
-    ) {
-      doodlerVelocity = -10;
+startGame()
+
+// highscore
+
+// end
+const username = document.querySelector('#username')
+const saveScoreBtn = document.querySelector('#saveScoreBtn')
+const finalScore = document.querySelector('#finalScore')
+const mostRecentScore = localStorage.getItem('mostRecentScore')
+
+
+finalScore.innerText = mostRecentScore
+
+username.addEventListener('keyup', () => {
+    saveScoreBtn.disabled = !username.value
+})
+
+saveHighScore = e => {
+    e.preventDefault()
+
+    const score = {
+        score: mostRecentScore,
+        name: username.value
     }
-  });
-  
-  if(doodlerY > height) {
-    if(score > highScore) {
-      highScore = score;
-    }
-    gameStarted = false;
-    platformList = [];
-  }
-  
-  // screen wraps from left to right
-  if(doodlerX < -doodlerSize) {
-    doodlerX = width;
-  } else if(doodlerX > width) {
-    doodlerX = -doodlerSize;
-  }
+
+    highScores.push(score)
+
+    highScores.sort((a,b) => {
+        return b.score - a.score
+    })
+
+    highScores.splice(5)
+
+    localStorage.setItem('highScores', JSON.stringify(highScores))
+    window.location.assign('/')
+
+    
 }
