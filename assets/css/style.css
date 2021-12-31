@@ -354,6 +354,13 @@ Introduction
   max-width: 1170px;
 }
 
+.section-center-home {
+  background-image: url(../images/home-hero.jpg);
+  width: 90vw;
+  margin: 2rem auto;
+  max-width: 1170px;
+}
+
 main {
   /* min-height: 50vh; */
   display: grid;
@@ -710,12 +717,16 @@ Studio growth
   padding: 10px;
   width: 20rem;
   flex: 50%;
+  box-shadow: var(--light-shadow);
+  
 }
 
 .flex-item p {
   padding-top: 1rem;
 }
 
+.flex-item h4 {
+  text-transform: uppercase;
 
 
 /* Responsive layout - makes a one column-layout instead of two-column layout */
@@ -800,59 +811,7 @@ Game
 =============
 */
 
-#content {
-  width: 600px;
-  margin: 0 auto;
-  margin-top: 50px;
-  border: 1px dotted black;
-  text-align: center;
-  font-family: 'Helvetica Neue', arial;
-  font-weight: 100;
-}
 
-div.eight-ball {
-  background-color: black;
-  border: 1px solid black;
-  border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  margin-top: 30px;
-}
-
-div.answer {
-  background-color: #333;
-  border: 1px solid #333;
-  border-radius: 50%;
-  width: 50%;
-  height: 50%;
-  margin: 25% auto;
-}
-
-p#eight {
-  font-size: 5em;
-  margin: 20% auto;
-  color: white;
-}
-
-p#answer {
-  padding: 23px;
-  color: lightblue;
-  letter-spacing: 2px;
-  font-size: 18px;
-}
-
-#question {
-  margin: 20px;
-  padding: 10px;
-  width: 400px;
-  font-size: 22px;
-}
-
-#info {
-  font-size: 22px;
-}
 
 /* 
  =============
