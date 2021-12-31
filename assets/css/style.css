@@ -185,9 +185,10 @@ Hero Image
   padding-left: 15rem;
 }
 
-#hero-image-studio-text p{
+#hero-image-studio-text p {
   padding-bottom: 2rem;
 }
+
 /*
 =============== 
 Nav Bar
@@ -318,7 +319,7 @@ Introduction
   margin-right: 5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  }
+}
 
 /*  global classes */
 
@@ -723,6 +724,7 @@ Studio growth
     flex-direction: column;
   }
 }
+
 /* 
 =========
 Studio accordians
@@ -798,61 +800,61 @@ Game
 =============
 */
 
-#content { 
-  width: 600px; 
-  margin: 0 auto; 
-  margin-top: 50px; 
-  border: 1px dotted black;       
-  text-align: center; 
-  font-family: 'Helvetica Neue', arial; 
+#content {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px dotted black;
+  text-align: center;
+  font-family: 'Helvetica Neue', arial;
   font-weight: 100;
 }
- 
- div.eight-ball {
-   background-color: black;
-   border: 1px solid black;
-   border-radius: 50%;
-   width: 300px;
-   height: 300px;
-   margin: 0 auto;
-   margin-bottom: 30px;
-   margin-top: 30px;
- }
- 
- div.answer {
-   background-color: #333;
-   border: 1px solid #333;
-   border-radius: 50%;
-   width: 50%;
-   height: 50%;
-   margin: 25% auto;
- }
- 
- p#eight {
-   font-size: 5em;
-   margin: 20% auto;
-   color: white;
- }
- 
- p#answer {
-   padding: 23px;
-   color: lightblue;
-   letter-spacing: 2px;
-   font-size:18px;
- }
- 
- #question {
-   margin: 20px;
-   padding: 10px;
-   width: 400px;
-   font-size:22px;
- }
- 
- #info {
-   font-size: 22px;
- }
 
- /* 
+div.eight-ball {
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+div.answer {
+  background-color: #333;
+  border: 1px solid #333;
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  margin: 25% auto;
+}
+
+p#eight {
+  font-size: 5em;
+  margin: 20% auto;
+  color: white;
+}
+
+p#answer {
+  padding: 23px;
+  color: lightblue;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+#question {
+  margin: 20px;
+  padding: 10px;
+  width: 400px;
+  font-size: 22px;
+}
+
+#info {
+  font-size: 22px;
+}
+
+/* 
  =============
  Inspiration
  =============
@@ -870,8 +872,8 @@ Quote generator
 ===============
  */
 
- 
- .quiz-section-center {
+
+.quiz-section-center {
   width: 90vw;
   margin: 2rem auto;
   max-width: 1170px;
@@ -888,8 +890,85 @@ Quote generator
 }
 
 
+/* 
+==========
+Modal home
+==========
+ */
+.hero {
+  min-height: 100vh;
+  background: url("./hero.jpeg") center/cover no-repeat;
+  display: grid;
+  place-items: center;
+}
 
+.banner {
+  background: var(--clr-white);
+  padding: 4rem 0;
+  border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
+  text-align: center;
+  width: 90vw;
+  max-width: var(--fixed-width);
+}
 
+.modal-btn {
+  margin-top: 2rem;
+  background: var(--clr-primary-5);
+  border-color: var(--clr-primary-5);
+  color: var(--clr-white);
+}
 
+.modal-btn:hover {
+  background: transparent;
+  color: var(--clr-primary-5);
+}
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(73, 166, 233, 0.5);
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+  visibility: hidden;
+  z-index: -10;
+}
 
+/* OPEN/CLOSE MODAL */
+.open-modal {
+  visibility: visible;
+  z-index: 10;
+}
+
+.modal-container {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  width: 90vw;
+  height: 30vh;
+  max-width: var(--fixed-width);
+  text-align: center;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-red-dark);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.close-btn:hover {
+  color: var(--clr-red-light);
+  transform: scale(1.3);
+}
