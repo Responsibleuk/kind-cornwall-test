@@ -703,6 +703,14 @@ Studio growth
   box-sizing: border-box;
 }
 
+.home-section-center {
+  width: 100vh;
+  max-width: 1170px;
+  height: 60vw;
+  background-image: url(../images/cornwall.jpg);
+  overflow: hidden;
+}
+
 .flex-container {
   margin-left: 10rem;
   margin-right: 10rem;
@@ -714,11 +722,13 @@ Studio growth
 }
 
 .flex-item {
-  padding: 10px;
+  padding: 1rem;
+  margin: 1rem;
   width: 20rem;
   flex: 50%;
+  background-color: #fff;
   box-shadow: var(--light-shadow);
-  
+
 }
 
 .flex-item p {
@@ -726,7 +736,10 @@ Studio growth
 }
 
 .flex-item h4 {
+  padding-top: 1rem;
   text-transform: uppercase;
+  size-adjust: 150%;
+}
 
 
 /* Responsive layout - makes a one column-layout instead of two-column layout */
@@ -811,7 +824,59 @@ Game
 =============
 */
 
+#content {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px dotted black;
+  text-align: center;
+  font-family: 'Helvetica Neue', arial;
+  font-weight: 100;
+}
 
+div.eight-ball {
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+div.answer {
+  background-color: #333;
+  border: 1px solid #333;
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  margin: 25% auto;
+}
+
+p#eight {
+  font-size: 5em;
+  margin: 20% auto;
+  color: white;
+}
+
+p#answer {
+  padding: 23px;
+  color: lightblue;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+#question {
+  margin: 20px;
+  padding: 10px;
+  width: 400px;
+  font-size: 22px;
+}
+
+#info {
+  font-size: 22px;
+}
 
 /* 
  =============
