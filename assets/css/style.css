@@ -461,6 +461,8 @@ Button
   text-align: center;
   text-decoration: none;
   word-break: break-word;
+  margin: auto;
+  width: 50%;
 }
 
 /*
