@@ -1125,23 +1125,28 @@ input::placeholder {
   color: rgb(28, 26, 26)
 }
 
-/*  */
+/* ===================quiz================ */
 
 #question {
 color: var(--clr-primary-1);
 font-size: 2rem;
+width: 70vw;
+margin-left: 15vw;
+margin-right: 15vw;
+text-align: center;
 }
 
 .choice-container {
 display: flex;
-margin-bottom: 0.8rem;
-width: 50rem;
-height: 6rem;
+margin-bottom: 2rem;
+width: 70vw;
+margin-left: 15vw;
+margin-right: 15vw;
+height: 10vh;
 border-radius: 4px;
 background: var(--clr-primary-2);
 font-size: 2rem;
 color: white;
-min-width: 80rem;
 }
 
 .choice-container:hover {
@@ -1151,15 +1156,20 @@ transform: scale(1.02);
 transform: transform 100ms;
 }
 
-.choice-prefix {
-padding: 1.5rem 2.5rem;
+
+.choice-text {
+padding: 2vh;
+text-align: center;
+width: 100%;
 color: white;
 }
 
 .choice-text {
-padding: 1.5rem;
-width: 100%;
-}
+  padding: 2vh;
+  text-align: center;
+  width: 100%;
+  color: white;
+  }
 
 .correct {
 background: var(--clr-green-dark);
@@ -1185,18 +1195,23 @@ text-align: center;
 }
 
 #progressBar {
-width: 80rem;
+width: 70vw;
+margin-left: 15vw;
+margin-right: 15vw;
 height: 3rem;
-border: 0.2rem solid var(--clr-green-dark);
 margin-top: 2rem;
 overflow: hidden;
 }
 
 #progressBarFull {
 height: 100%;
-background: var(--clr-green-dark);
+background: var(--clr-primary-2);
 width: 0%;
 }
+
+#progress-item {
+  width: 10vw;
+  margin-left: 45vw;
 
 @media screen and (max-width: 768px) {
 .choice-container {
